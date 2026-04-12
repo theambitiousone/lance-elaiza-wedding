@@ -779,7 +779,7 @@ export default function WeddingWebsiteTemplate() {
                 </div>
                 <div className="grid gap-6 px-6 py-7 sm:px-8">
                   <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                    <DetailInfoCard label="5:30 PM" value="Doors Open" />
+                   <DetailInfoCard label="Doors Open" value="5:30 PM" />
                     <DetailInfoCard label="Ballroom" value={wedding.reception.room} />
                   </div>
                   <div className="rounded-[1.5rem] bg-[#f1f1f1] p-5">
