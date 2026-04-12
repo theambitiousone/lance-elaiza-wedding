@@ -547,110 +547,122 @@ export default function WeddingWebsiteTemplate() {
       </header>
 
       <main>
-        <section id="home" className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.85),rgba(255,255,255,0.45),transparent_68%)]" />
-          <div
-            className="min-h-[64vh] bg-cover bg-center sm:min-h-[86vh] md:min-h-[92vh]"
-            style={{ backgroundImage: "url('/images/main.jpg')" }}
+<section id="home" className="relative overflow-hidden">
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.45),rgba(255,255,255,0.16),transparent_68%)] z-[1]" />
+
+  <div className="relative min-h-[64vh] sm:min-h-[86vh] md:min-h-[92vh]">
+    <video
+      className="absolute inset-0 h-full w-full object-cover"
+      autoPlay
+      loop
+      muted
+      playsInline
+      preload="metadata"
+      poster="/images/main.jpg"
+    >
+      <source src="/images/0410(2).mp4" type="video/mp4" />
+    </video>
+
+    <div className="absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(248,247,244,0.58))]" />
+
+    <div className="relative z-[2] mx-auto flex min-h-[64vh] max-w-[1440px] items-center px-4 py-6 sm:min-h-[86vh] sm:px-6 sm:py-16 md:min-h-[92vh] lg:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="relative max-w-[1120px] rounded-[2rem] border border-white/50 bg-white/78 p-4 shadow-[0_20px_60px_rgba(44,36,31,0.08)] backdrop-blur sm:p-8 md:p-12"
+      >
+        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#e5e5e5] bg-white px-3 py-2 text-[9px] uppercase tracking-[0.18em] text-[#7d7164] sm:mb-4 sm:px-4 sm:text-xs sm:tracking-[0.25em]">
+          <Heart className="h-4 w-4" /> Love, when it is true, asks to be witnessed
+        </div>
+
+        <h1 className="font-serif text-3xl leading-tight tracking-[-0.03em] text-[#3a3a3a] sm:text-5xl md:text-6xl">
+          {wedding.couple}
+        </h1>
+        <p className="mt-3 text-sm text-[#6b6b6b] sm:mt-4 sm:text-lg md:text-xl">{wedding.subtitle}</p>
+
+        <div className="mt-5 grid gap-3 min-[520px]:grid-cols-2 lg:mt-8">
+          <Card className="rounded-2xl border border-[#e5e5e5] bg-white shadow-[0_10px_28px_rgba(44,36,31,0.05)]">
+            <CardContent className="p-4 sm:p-5">
+              <div className="mb-3 text-xs uppercase tracking-[0.25em] text-[#a08f7b]">{wedding.ceremony.label}</div>
+              <div className="grid gap-3 text-[#6b6b6b]">
+                <div className="text-xs italic text-[#8a8176]">{wedding.ceremony.arrivalNote}</div>
+                <div className="flex items-center gap-3">
+                  <Calendar className="h-5 w-5" />
+                  <div>
+                    <div className="text-xs uppercase tracking-wide text-[#a08f7b]">Date</div>
+                    <div className="font-medium text-[#444444]">{wedding.date}</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Clock className="h-5 w-5" />
+                  <div>
+                    <div className="text-xs uppercase tracking-wide text-[#a08f7b]">Time</div>
+                    <div className="font-medium text-[#444444]">{wedding.ceremony.time}</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <MapPin className="h-5 w-5" />
+                  <div>
+                    <div className="text-xs uppercase tracking-wide text-[#a08f7b]">Venue</div>
+                    <div className="font-medium text-[#444444]">{wedding.ceremony.venue}</div>
+                    <div className="text-sm text-[#7a7065]">{wedding.ceremony.locationDetail}</div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="rounded-2xl border border-[#e5e5e5] bg-white shadow-[0_10px_28px_rgba(44,36,31,0.05)]">
+            <CardContent className="p-4 sm:p-5">
+              <div className="mb-3 text-xs uppercase tracking-[0.25em] text-[#a08f7b]">{wedding.reception.label}</div>
+              <div className="grid gap-3 text-[#6b6b6b]">
+                <div className="flex items-center gap-3">
+                  <Calendar className="h-5 w-5" />
+                  <div>
+                    <div className="text-xs uppercase tracking-wide text-[#a08f7b]">Date</div>
+                    <div className="font-medium text-[#444444]">{wedding.date}</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Clock className="h-5 w-5" />
+                  <div>
+                    <div className="text-xs uppercase tracking-wide text-[#a08f7b]">Time</div>
+                    <div className="font-medium text-[#444444]">{wedding.reception.doorsOpenTime} - Doors Open</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <MapPin className="h-5 w-5" />
+                  <div>
+                    <div className="text-xs uppercase tracking-wide text-[#a08f7b]">Venue</div>
+                    <div className="font-medium text-[#444444]">{wedding.reception.venue}</div>
+                    <div className="text-sm text-[#7a7065]">{wedding.reception.locationDetail}</div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
+          <Button
+            className="w-full rounded-2xl bg-[#4a433b] text-[#f8f3ec] hover:bg-[#3b352f] sm:w-auto"
+            onClick={() => scrollToSection("rsvp")}
           >
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.20),rgba(248,247,244,0.55))]" />
-            <div className="mx-auto flex min-h-[64vh] max-w-[1440px] items-center px-4 py-6 sm:min-h-[86vh] sm:px-6 sm:py-16 md:min-h-[92vh] lg:px-8">
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
-                className="relative max-w-[1120px] rounded-[2rem] border border-[#eaeaea] bg-white/82 p-4 shadow-[0_20px_60px_rgba(44,36,31,0.08)] backdrop-blur sm:p-8 md:p-12"
-              >
-                <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#e5e5e5] bg-white px-3 py-2 text-[9px] uppercase tracking-[0.18em] text-[#7d7164] sm:mb-4 sm:px-4 sm:text-xs sm:tracking-[0.25em]">
-                  <Heart className="h-4 w-4" /> Love, when it is true, asks to be witnessed
-                </div>
-                <h1 className="font-serif text-3xl leading-tight tracking-[-0.03em] text-[#3a3a3a] sm:text-5xl md:text-6xl">
-                  {wedding.couple}
-                </h1>
-                <p className="mt-3 text-sm text-[#6b6b6b] sm:mt-4 sm:text-lg md:text-xl">{wedding.subtitle}</p>
-
-                <div className="mt-5 grid gap-3 min-[520px]:grid-cols-2 lg:mt-8">
-                  <Card className="rounded-2xl border border-[#e5e5e5] bg-white shadow-[0_10px_28px_rgba(44,36,31,0.05)]">
-                    <CardContent className="p-4 sm:p-5">
-                      <div className="mb-3 text-xs uppercase tracking-[0.25em] text-[#a08f7b]">{wedding.ceremony.label}</div>
-                      <div className="grid gap-3 text-[#6b6b6b]">
-                        <div className="text-xs italic text-[#8a8176]">{wedding.ceremony.arrivalNote}</div>
-                        <div className="flex items-center gap-3">
-                          <Calendar className="h-5 w-5" />
-                          <div>
-                            <div className="text-xs uppercase tracking-wide text-[#a08f7b]">Date</div>
-                            <div className="font-medium text-[#444444]">{wedding.date}</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <Clock className="h-5 w-5" />
-                          <div>
-                            <div className="text-xs uppercase tracking-wide text-[#a08f7b]">Time</div>
-                            <div className="font-medium text-[#444444]">{wedding.ceremony.time}</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <MapPin className="h-5 w-5" />
-                          <div>
-                            <div className="text-xs uppercase tracking-wide text-[#a08f7b]">Venue</div>
-                            <div className="font-medium text-[#444444]">{wedding.ceremony.venue}</div>
-                            <div className="text-sm text-[#7a7065]">{wedding.ceremony.locationDetail}</div>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="rounded-2xl border border-[#e5e5e5] bg-white shadow-[0_10px_28px_rgba(44,36,31,0.05)]">
-                    <CardContent className="p-4 sm:p-5">
-                      <div className="mb-3 text-xs uppercase tracking-[0.25em] text-[#a08f7b]">{wedding.reception.label}</div>
-                      <div className="grid gap-3 text-[#6b6b6b]">
-                        <div className="flex items-center gap-3">
-                          <Calendar className="h-5 w-5" />
-                          <div>
-                            <div className="text-xs uppercase tracking-wide text-[#a08f7b]">Date</div>
-                            <div className="font-medium text-[#444444]">{wedding.date}</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <Clock className="h-5 w-5" />
-                          <div>
-                            <div className="text-xs uppercase tracking-wide text-[#a08f7b]">Time</div>
-                            <div className="font-medium text-[#444444]">{wedding.reception.doorsOpenTime} - Doors Open</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <MapPin className="h-5 w-5" />
-                          <div>
-                            <div className="text-xs uppercase tracking-wide text-[#a08f7b]">Venue</div>
-                            <div className="font-medium text-[#444444]">{wedding.reception.venue}</div>
-                            <div className="text-sm text-[#7a7065]">{wedding.reception.locationDetail}</div>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-
-                <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
-                  <Button
-                    className="w-full rounded-2xl bg-[#4a433b] text-[#f8f3ec] hover:bg-[#3b352f] sm:w-auto"
-                    onClick={() => scrollToSection("rsvp")}
-                  >
-                    RSVP Now
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="w-full rounded-2xl border-[#e5e5e5] bg-white text-[#444444] hover:bg-[#f5f5f5] sm:w-auto"
-                    onClick={() => scrollToSection("details")}
-                  >
-                    View Details
-                  </Button>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
+            RSVP Now
+          </Button>
+          <Button
+            variant="outline"
+            className="w-full rounded-2xl border-[#e5e5e5] bg-white text-[#444444] hover:bg-[#f5f5f5] sm:w-auto"
+            onClick={() => scrollToSection("details")}
+          >
+            View Details
+          </Button>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
         <section className="mx-auto max-w-[1440px] px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
           <div className="grid grid-cols-3 gap-3 sm:gap-6">
