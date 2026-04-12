@@ -203,7 +203,7 @@ const weddingData: WeddingData = {
     secondary: {
       candle: ["Tinker J. Lu", "Lorraine L. Yu"],
       veil: ["Alexander Ritchell P. Cagang", "Kimberly Alyza T. Ang"],
-      cord: ["Mario Greogorio F. Aglipay", "Shannon Casey A. Tan"],
+      cord: ["Mario Gregorio F. Aglipay", "Shannon Casey A. Tan"],
     },
   },
   entourage: {
