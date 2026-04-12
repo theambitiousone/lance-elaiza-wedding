@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Lance & Elaiza | Wedding",
   description: "Official wedding website of Lance and Elaiza",
   icons: {
