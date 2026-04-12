@@ -550,18 +550,26 @@ export default function WeddingWebsiteTemplate() {
 <section id="home" className="relative overflow-hidden">
   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.45),rgba(255,255,255,0.16),transparent_68%)] z-[1]" />
 
-  <div className="relative min-h-[64vh] sm:min-h-[86vh] md:min-h-[92vh]">
-    <video
-      className="absolute inset-0 h-full w-full object-cover"
-      autoPlay
-      loop
-      muted
-      playsInline
-      preload="metadata"
-      poster="/images/main.jpg"
-    >
-      <source src="/images/0410(2).mp4" type="video/mp4" />
-    </video>
+<div className="relative min-h-[64vh] sm:min-h-[86vh] md:min-h-[92vh]">
+
+  {/* fallback background (prevents blank flash) */}
+  <div className="absolute inset-0 bg-[#f8f7f4]" />
+
+  <video
+    className="absolute inset-0 h-full w-full object-cover"
+    autoPlay
+    loop
+    muted
+    playsInline
+    preload="auto"
+  >
+    <source src="/images/0410(2).mp4" type="video/mp4" />
+  </video>
+
+  {/* overlay (keeps text readable & luxury feel) */}
+  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.28),rgba(248,247,244,0.68))]" />
+
+  {/* your content continues below */}
 
     <div className="absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(248,247,244,0.58))]" />
 
