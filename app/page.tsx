@@ -190,7 +190,7 @@ const weddingData: WeddingData = {
         "Mr. Ronnie L. Yu",
       ],
       female: [
-        "Mrs. Cecily C. Lim",
+        "Mrs. Cecily M. Chua Lim",
         "Dr. Ana Victoria S. Gotil",
         "Mrs. Diana O. Lee",
         "Mrs. Corazon V. Ong",
@@ -1085,7 +1085,7 @@ export default function WeddingWebsiteTemplate() {
           <SectionHeading eyebrow="RSVP" title="Let us know if you can make it" />
           <Card className="rounded-[2rem] border border-[#e5e5e5] bg-white shadow-[0_16px_36px_rgba(44,36,31,0.05)]">
             <CardContent className="p-6 sm:p-8">
-              <form className="grid gap-5" onSubmit={handleSubmit}>
+              <div className="grid gap-5 opacity-70 pointer-events-none">
                 <div className="grid gap-4 min-[700px]:grid-cols-2">
                   <div>
                     <label className="mb-2 block text-sm font-medium text-[#444444]">Full name</label>
@@ -1093,16 +1093,6 @@ export default function WeddingWebsiteTemplate() {
                       value={rsvp.name}
                       onChange={(e) => setRsvp({ ...rsvp, name: e.target.value })}
                       placeholder="Your name"
-                      className="rounded-2xl border-[#e5e5e5] bg-white"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="mb-2 block text-sm font-medium text-[#444444]">Allergies / Dietary Restrictions (optional)</label>
-                    <Input
-                      value={rsvp.allergies}
-                      onChange={(e) => setRsvp({ ...rsvp, allergies: e.target.value })}
-                      placeholder="Please indicate any allergies (leave blank if none)."
                       className="rounded-2xl border-[#e5e5e5] bg-white"
                     />
                   </div>
@@ -1149,7 +1139,10 @@ export default function WeddingWebsiteTemplate() {
                 >
                   {submitting ? "Submitting..." : "Submit RSVP"}
                 </Button>
-              </form>
+              <p className="text-center text-sm text-[#7a7065] italic">
+  RSVP submissions are now closed.
+</p>
+</div>
             </CardContent>
           </Card>
         </section>
